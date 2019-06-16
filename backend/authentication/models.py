@@ -9,8 +9,8 @@ from django.db import models
 class User(models.Model):
     name = models.CharField(max_length=40)
     last_names = models.CharField(max_length=60)
-    permission = models.ManyToManyField(
-        'Permission', related_name='permission_user')
+    permission = models.ForeignKey(
+        'Permission', related_name='permission_user', blank=True, null=True)
     django_user = models.OneToOneField(
         "auth.User",
         on_delete=models.CASCADE,
