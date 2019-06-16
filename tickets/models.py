@@ -17,7 +17,7 @@ class Ticket(models.Model):
     title = models.CharField(max_length=120)
     description = models.CharField(max_length=150)
     status = models.CharField(max_length=20, choices=TICKET_STATUS)
-    created_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = "ticket"

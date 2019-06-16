@@ -74,15 +74,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
+# CORS Access
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# this should be an environment variable, for now it is established in a hardcoded way
-DATABASE_URL = 'postgres://ADMIN:admin@127.0.0.1:32768/tickets'
-
 DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
 }
 
 

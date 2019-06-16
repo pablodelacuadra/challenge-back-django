@@ -9,6 +9,7 @@ from tickets.models import Ticket
 
 class TicketAdmin(admin.ModelAdmin):
     filter = ('title', 'description', 'status')
+    search_fields = ('title', 'description', 'status')
     list_display = ('id', 'title', 'description', 'status', 'created_at')
 
 
