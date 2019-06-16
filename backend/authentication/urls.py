@@ -17,10 +17,11 @@ from django.conf.urls import url, include
 from rest_framework.authtoken import views
 
 from rest_framework.routers import DefaultRouter
-from .views import Logout, UserViewSet
+from .views import Logout, UserViewSet, PermissionViewSet
 
 router = DefaultRouter()
 router.register('users', UserViewSet)
+router.register('permissions', PermissionViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),

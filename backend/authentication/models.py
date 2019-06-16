@@ -9,6 +9,8 @@ from django.db import models
 class User(models.Model):
     name = models.CharField(max_length=40)
     last_names = models.CharField(max_length=60)
+    permission = models.ManyToManyField(
+        'Permission', related_name='permission_user')
     django_user = models.OneToOneField(
         "auth.User",
         on_delete=models.CASCADE,
@@ -21,3 +23,10 @@ class User(models.Model):
 
     def __unicode__(self):
         return "{name} {last_names}".format(name=self.name, last_names=self.last_names)
+
+
+class Permission(models.Model):
+    name = models.CharField(max_length=40)
+
+    def __unicode__(self):
+        return self.name

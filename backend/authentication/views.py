@@ -3,15 +3,20 @@ from __future__ import unicode_literals
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import User
-from .serializers import UserSerializer
+from .models import User, Permission
+from .serializers import UserSerializer, PermissionSerializer
 
 # Create your views here.
+
+
+class PermissionViewSet(viewsets.ModelViewSet):
+    serializer_class = PermissionSerializer
+    queryset = Permission.objects.all()
+
 
 class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
-    lookup_field = 'UserID'
 
     def create(self, request):
         data = request.data
