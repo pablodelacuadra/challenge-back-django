@@ -1,18 +1,24 @@
 ## Backend Tickets
 
-Para correr la aplicacion:
+1. Construir la imagen docker:
 
 ```
-$ docker-compose up -d
+$ docker-compose build
 ```
 
-Para ejecutar las migraciones:
+2. Ejecutar las migraciones:
 
 ```
 $ docker-compose run web python manage.py migrate
 ```
 
-Para crear un superusuario e ingresar al admin de django:
+3. Para correr la aplicacion:
+
+```
+$ docker-compose up -d
+```
+
+4. Para crear un superusuario e ingresar al admin de django(opcional):
 
 ```
 $ docker-compose run web python manage.py createsuperuser
