@@ -1,0 +1,9 @@
+[
+    {
+        "model": "authentication.permission",
+        "fields": {
+            "name": "crear tickets"
+        }
+    }
+]
+
